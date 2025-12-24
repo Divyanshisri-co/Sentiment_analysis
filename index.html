@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IMDB Sentiment Analysis</title>
+</head>
+<body>
+    <h2>IMDB Sentiment Analysis</h2>
+    <form action="/predict" method="post">
+        <textarea name="review" rows="5" cols="50" placeholder="Enter your review here"></textarea><br><br>
+        <input type="submit" value="Predict Sentiment">
+    </form>
+
+    {% if prediction_text %}
+        {% if 'positive' in prediction_text|lower %}
+            <p style="color:green;">{{ prediction_text }}</p>
+        {% else %}
+            <p style="color:red;">{{ prediction_text }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
